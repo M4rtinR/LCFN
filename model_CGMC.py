@@ -1,7 +1,8 @@
 ## baseline: Convolutional Geometric Matrix Completion (CGMC)
 ## Kai-Lang Yao and Wu-Jun Li. Convolutional geometric matrix completion. CoRR, 2018.
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 
 class model_CGMC(object):

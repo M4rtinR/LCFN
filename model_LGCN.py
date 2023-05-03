@@ -2,7 +2,8 @@
 ## author@Wenhui Yu  2021.01.17
 ## email: jianlin.ywh@alibaba-inc.com
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 class model_LGCN(object):
     def __init__(self, n_users, n_items, lr, lamda, emb_dim, layer, pre_train_latent_factor, graph_embeddings, graph_conv,

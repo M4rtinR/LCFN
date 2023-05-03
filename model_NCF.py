@@ -1,7 +1,8 @@
 ## baseline: Neural Collaborative Filtering (NCF)
 ## Xiangnan He, Lizi Liao, Hanwang Zhang, Liqiang Nie, Xia Hu, and Tat-Seng Chua. Neural collaborative filtering. In Proceedings of the 26th International Conference on World Wide Web, WWW '17, pages 173-182, 2017.
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 
 class model_NCF(object):

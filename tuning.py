@@ -4,7 +4,8 @@
 from train_model import train_model
 from print_save import print_params, save_params
 from get_hyperparameters import get_hyperparameter
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 import random as rd
 import time

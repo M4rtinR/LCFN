@@ -1,7 +1,8 @@
 ## baseline: Graph convolutional matrix completion (GCMC)
 ## Rianne Van Den Berg, Thomas N. Kipf, and Max Welling. Graph convolutional matrix completion. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining, KDD '18, 2018.
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 
 class model_GCMC(object):

@@ -3,7 +3,8 @@
 ## author@Wenhui Yu  2020.06.02
 ## email: jianlin.ywh@alibaba-inc.com
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from numpy import *
 import numpy as np
 

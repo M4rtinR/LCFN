@@ -1,7 +1,8 @@
 ## author@ Wenhui Yu email: jianlin.ywh@alibaba-inc.com  2021.02.16
 ## constructing the sparse graph
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 
 def propagation_matrix(graph, user_num, item_num, norm):

@@ -1,6 +1,7 @@
 ## basic baseline MF_BPR
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 class model_MF(object):
     def __init__(self,n_users,n_items,emb_dim,lr,lamda):

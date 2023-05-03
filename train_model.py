@@ -9,11 +9,12 @@ from model_SCF import model_SCF
 from model_CGMC import model_CGMC
 from model_LightGCN import model_LightGCN
 from model_LCFN import model_LCFN
-from model_LGCN import LGCN
+from model_LGCN import model_LGCN
 from model_SGNN import model_SGNN
 from test_model import test_model
 from print_save import print_value, save_value
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 import random as rd
 import pandas as pd
@@ -50,7 +51,7 @@ def train_model(para, data, path_excel):
     F1_max = 0
     F1_df = pd.DataFrame(columns=TOP_K)
     NDCG_df = pd.DataFrame(columns=TOP_K)
-    t1 = time.clock()
+    t1 = time.perf_counter()
     for epoch in range(N_EPOCH):
         for batch_num in range(len(batches) - 1):
             train_batch_data = []
@@ -75,6 +76,6 @@ def train_model(para, data, path_excel):
         NDCG_df.loc[epoch + 1] = NDCG
         save_value([[F1_df, 'F1'], [NDCG_df, 'NDCG']], path_excel, first_sheet=False)
         if loss > 10 ** 10: break
-    t2 = time.clock()
+    t2 = time.perf_counter()
     print('time cost:', (t2 - t1) / 200)
     return F1_max

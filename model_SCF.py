@@ -1,7 +1,8 @@
 ## baseline: Spectral Collaborative Filtering (SCF)
 ## Lei Zheng, Chun-Ta Lu, Fei Jiang, Jiawei Zhang, and Philip S. Yu. Spectral collaborative filtering. In Proceedings of the 12th ACM Conference on Recommender Systems, RecSys '18, pages 311-319, 2018.
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 
 class model_SCF(object):

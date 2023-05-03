@@ -31,21 +31,26 @@ def save_params(para_name,para,path_excel):
     wb.save(path_excel)
 
 def save_value(df_list,path_excel,first_sheet):
-    excelWriter = pd.ExcelWriter(path_excel, engine='openpyxl')
+    try:
+        excelWriter = pd.ExcelWriter(path_excel, engine='openpyxl', mode='a', if_sheet_exists='overlay')
+    except FileNotFoundError:
+        excelWriter = pd.ExcelWriter(path_excel, engine='openpyxl', mode='w')
 
     if first_sheet is False:
         workbook = load_workbook(path_excel)
-        excelWriter.book = workbook
+        excelWriter.workbook = workbook
         exist_sheets = workbook.get_sheet_names()
         for df in df_list:
             if df[1] in exist_sheets:
                 workbook.remove_sheet(workbook.get_sheet_by_name(df[1]))
             df[0].to_excel(excel_writer=excelWriter, sheet_name=df[1],index = True)
-            excelWriter.save()
+            excelWriter._save()
     else:
         for df in df_list:
             df[0].to_excel(excel_writer=excelWriter, sheet_name=df[1], index=True)
-            excelWriter.save()
+            excelWriter._save()
+
+
     excelWriter.close()
 
 def df2str(df):

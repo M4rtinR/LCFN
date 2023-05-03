@@ -1,7 +1,8 @@
 ## baseline: Neural Graph Collaborative Filtering (NGCF)
 ## XiangWang, Xiangnan He, MengWang, Fuli Feng, and Tat-Seng Chua. 2019. Neural Graph Collaborative Filtering. In Proceedings of the 42nd International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR '19), 2019.
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 
 class model_NGCF(object):

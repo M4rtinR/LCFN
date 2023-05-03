@@ -1,6 +1,7 @@
 from train_model import train_model
 from print_save import print_params, save_params
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import random as rd
 import time
 
